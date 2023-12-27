@@ -1,9 +1,9 @@
 
-let randomNumber = parseInt(Math.random() * 100 + 1);
+let randomNumber = parseInt(Math.random() * 100 + 1); // getting a random a number 
 
-const submit = document.querySelector('#subt');
-const userInput = document.querySelector('#guessField');
-const guessSlot = document.querySelector('.guesses');
+const submit = document.querySelector('#subt'); 
+const userInput = document.querySelector('#guessField'); // catching input field 
+const guessSlot = document.querySelector('.guesses'); // catchin guesslot
 const remaining = document.querySelector('.lastResult');
 const lowOrHi = document.querySelector('.lowOrHi');
 const startOver = document.querySelector('.resultParas');
@@ -24,6 +24,7 @@ if (playGame) {
   });
 }
 
+//  to verify whether the guess guessed by user is a number
 function validateGuess(guess) {
   if (isNaN(guess)) {
     alert('PLease enter a valid number');
@@ -44,6 +45,7 @@ function validateGuess(guess) {
   }
 }
 
+//  for verifying the guess made by user
 function checkGuess(guess) {
   if (guess === randomNumber) {
     displayMessage(`You guessed it right`);
@@ -55,6 +57,7 @@ function checkGuess(guess) {
   }
 }
 
+//  for displaying guesses made by user
 function displayGuess(guess) {
   userInput.value = '';
   guessSlot.innerHTML += `${guess}, `;
@@ -62,6 +65,7 @@ function displayGuess(guess) {
   remaining.innerHTML = `${11 - numGuess} `;
 }
 
+//  for  displaying information about result
 function displayMessage(message) {
   lowOrHi.innerHTML = `<h2>${message}</h2>`;
 }
@@ -76,8 +80,9 @@ function endGame() {
   newGame();
 }
 
-function newGame() {
-  const newGameButton = document.querySelector('#newGame');
+// To Start New Game
+function newGame() {  
+   const newGameButton = document.querySelector('#newGame');
   newGameButton.addEventListener('click', function (e) {
     randomNumber = parseInt(Math.random() * 100 + 1);
     prevGuess = [];
